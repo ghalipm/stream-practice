@@ -61,21 +61,18 @@ public class Practice {
 
     // Display all the countries
     public static List<Country> getAllCountries() {
-        //TODO Implement the method
         return countryService.readAll();
         //return new ArrayList<>();
     }
 
     // Display all the departments
     public static List<Department> getAllDepartments() {
-        //TODO Implement the method
         return departmentService.readAll();
         //return new ArrayList<>();
     }
 
     // Display all the jobs
     public static List<Job> getAllJobs() {
-        //TODO Implement the method
         return jobService.readAll();
         //return new ArrayList<>();
     }
@@ -373,7 +370,6 @@ public class Practice {
 
     // Display all the employees separated based on their department id number
     public static Map<Long, List<Employee>> getAllEmployeesForEachDepartment() {
-        //TODO Implement the method
         return employeeService.readAll().stream()
                 .collect(Collectors.groupingBy(employee -> employee.getDepartment().getId()));
         //return new HashMap<>();
@@ -404,7 +400,6 @@ public class Practice {
 
     // Display all the job histories in ascending order by start date
     public static List<JobHistory> getAllJobHistoriesInAscendingOrder() {
-        //TODO Implement the method
         return jobHistoryService.readAll().stream()
                 .sorted(Comparator.comparing(JobHistory::getStartDate))
                 .collect(Collectors.toList());
@@ -413,7 +408,6 @@ public class Practice {
 
     // Display all the job histories in descending order by start date
     public static List<JobHistory> getAllJobHistoriesInDescendingOrder() {
-        //TODO Implement the method
         return jobHistoryService.readAll().stream()
                 .sorted(Comparator.comparing(JobHistory::getStartDate).reversed())
                     .collect(Collectors.toList());
@@ -422,7 +416,6 @@ public class Practice {
 
     // Display all the job histories where the start date is after 01.01.2005
     public static List<JobHistory> getAllJobHistoriesStartDateAfterFirstDayOfJanuary2005() {
-        //TODO Implement the method
         return jobHistoryService.readAll().stream()
                 .filter(jobHistory -> jobHistory.getStartDate().isAfter( LocalDate.of(2005,1,1)))
                 .collect(Collectors.toList());
@@ -431,7 +424,6 @@ public class Practice {
 
     // Display all the job histories where the end date is 31.12.2007 and the job title of job is 'Programmer'
     public static List<JobHistory> getAllJobHistoriesEndDateIsLastDayOfDecember2007AndJobTitleIsProgrammer() {
-        //TODO Implement the method
         return jobHistoryService.readAll().stream()
                 .filter(jobHistory -> jobHistory.getEndDate().isEqual( LocalDate.of(2007,12,31)))
                 .filter(jobHistory -> jobHistory.getJob().getJobTitle().equals("Programmer"))
@@ -441,8 +433,6 @@ public class Practice {
 
     // Display the employee whose job history start date is 01.01.2007 and job history end date is 31.12.2007 and department's name is 'Shipping'
     public static Employee getEmployeeOfJobHistoryWhoseStartDateIsFirstDayOfJanuary2007AndEndDateIsLastDayOfDecember2007AndDepartmentNameIsShipping() throws Exception {
-        //TODO Implement the method
-
          jobHistoryService.readAll().stream()
                 .filter(jobHistory -> jobHistory.getStartDate().isEqual( LocalDate.of(2007,1,1)))
                 .filter(jobHistory -> jobHistory.getEndDate().isEqual( LocalDate.of(2007,12,31)))
@@ -459,7 +449,6 @@ public class Practice {
 
     // Display all the employees whose first name starts with 'A'
     public static List<Employee> getAllEmployeesFirstNameStartsWithA() {
-        //TODO Implement the method
         return employeeService.readAll().stream()
                 .filter(employee -> employee.getFirstName().startsWith("A"))
                 .collect(Collectors.toList());
@@ -468,7 +457,6 @@ public class Practice {
 
     // Display all the employees whose job id contains 'IT'
     public static List<Employee> getAllEmployeesJobIdContainsIT() {
-        //TODO Implement the method
         return employeeService.readAll().stream()
                 .filter(employee -> employee.getDepartment().getDepartmentName().contains("IT"))
                 .collect(Collectors.toList());
@@ -477,7 +465,6 @@ public class Practice {
 
     // Display the number of employees whose job title is programmer and department name is 'IT'
     public static Long getNumberOfEmployeesWhoseJobTitleIsProgrammerAndDepartmentNameIsIT() {
-        //TODO Implement the method
         return (long) (int) employeeService.readAll().stream()
                 .filter(employee -> employee.getDepartment().getDepartmentName().equals("IT"))
                 .filter(employee -> employee.getJob().getJobTitle().equals("Programmer")).count();
@@ -486,7 +473,6 @@ public class Practice {
 
     // Display all the employees whose department id is 50, 80, or 100
     public static List<Employee> getAllEmployeesDepartmentIdIs50or80or100() {
-        //TODO Implement the method
         List<Long> list=Arrays.asList(50L, 80L, 100L);
         return employeeService.readAll().stream()
                 .filter(employee -> list.contains(employee.getDepartment().getId()))
@@ -551,7 +537,6 @@ public class Practice {
 
     // Display all the employees whose department id is NOT 90, 60, 100, 120, or 130
     public static List<Employee> getAllEmployeesDepartmentIdIsNot90or60or100or120or130() {
-        //TODO Implement the method
         List<Long> list=Arrays.asList(90L, 60L, 100L, 120L,130L);
         return employeeService.readAll().stream()
                 .filter(employee -> !list.contains(employee.getDepartment().getId()))
